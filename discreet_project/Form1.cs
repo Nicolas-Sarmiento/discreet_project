@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -15,6 +17,7 @@ namespace discreet_project
         List<List<List<double>>> iterationList;
         List<List<List<Stopwatch>>> times;
         Sortings sortings;
+        double randomToSearch;
         int numbOfSorts = 3;
 
         public Form1()
@@ -67,6 +70,7 @@ namespace discreet_project
                     getSortingResults();
                 });
                 generateResultGraphs();
+
                 btnStart.Text = "Generar";
             }
             catch (Exception ex) {
@@ -76,6 +80,22 @@ namespace discreet_project
                 btnStart.Enabled = true;
             }
         }
+
+
+        private async void randomGenerateButton_Click(object sender, EventArgs e)
+        {
+            randomNumLabel.Text = "-.-";
+            await Task.Delay(100);
+            randomToSearch = random.NextDouble();
+            randomToSearch *= 10;
+            Console.WriteLine(randomToSearch);
+            randomToSearch = Math.Floor(randomToSearch);
+            randomToSearch /= 10;
+            Console.WriteLine(randomToSearch);
+            randomNumLabel.Text = randomToSearch.ToString("F1");
+
+        }
+
 
 
         //Genera todos los datos aleatorios (4 listas por iteracion)
@@ -212,9 +232,9 @@ namespace discreet_project
             loadResultGeneralChart(repeatedResultChart, 3);
 
             loadDataGridsGeneralResults();
+            generateIterationCharts();
 
         }
-
 
 
         //Cargar Charts con resultados de los ordenamientos
@@ -293,6 +313,99 @@ namespace discreet_project
 
 
         }
+        
+        
+        private void generateIterationCharts()
+        {
+            while (resultsTabControl.TabPages.Count > 1)
+            {
+                resultsTabControl.TabPages.RemoveAt(1);
+            }
+            Font font = new System.Drawing.Font("Microsoft Sans Serif", 9, System.Drawing.FontStyle.Regular);
+
+            for (int i = 0; i < times.Count; i++)
+            {
+                Chart sortingChart = new Chart
+                {
+                    Dock = DockStyle.Fill
+                };
+
+                sortingChart.Titles.Add($"Tiempo de ordenamiento en la iteración {i + 1} con cada tipo de lista y algoritmo de ordenamiento");
+                sortingChart.Titles[0].Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+
+                ChartArea chartArea = new ChartArea("MainArea");
+                chartArea.AxisX.Title = "Algoritmos de Ordenamiento";
+                chartArea.AxisY.Title = "Tiempo (ticks)";
+                chartArea.AxisY.TitleFont = font;
+                chartArea.AxisX.TitleFont = font;
+                chartArea.AxisX.Interval = 1; 
+                sortingChart.ChartAreas.Add(chartArea);
+
+                AddSeries(sortingChart, "Datos Aleatorios", System.Drawing.Color.Blue);
+                AddSeries(sortingChart, "Datos Ordenados Inversamente", System.Drawing.Color.Red);
+                AddSeries(sortingChart, "Datos por Rangos", System.Drawing.Color.Green);
+                AddSeries(sortingChart, "Datos con Repetidos", System.Drawing.Color.Purple);
+
+
+                String[] algorithms = new[] { "Burbuja", "Inserción", "Merge" };
+
+                List<long> timeRandom = times[i][0].Select(s => s.ElapsedTicks).ToList();
+                List<long> timeInverse = times[i][1].Select(s => s.ElapsedTicks).ToList();
+                List<long> timeRanged = times[i][2].Select(s => s.ElapsedTicks).ToList();
+                List<long> timeRepeated = times[i][3].Select(s => s.ElapsedTicks).ToList();
+
+                AddDataToSeries(sortingChart, "Datos Aleatorios", algorithms, timeRandom);
+                AddDataToSeries(sortingChart, "Datos Ordenados Inversamente", algorithms, timeInverse);
+                AddDataToSeries(sortingChart, "Datos por Rangos", algorithms, timeRanged);
+                AddDataToSeries(sortingChart, "Datos con Repetidos", algorithms, timeRepeated);
+
+                Legend legend = new Legend("Legend")
+                {
+                    Title = "Tipos de listas", 
+                    Docking = Docking.Bottom, 
+                    Alignment = StringAlignment.Center, 
+                    Font = new System.Drawing.Font("Microsoft Sans Serif", 10, System.Drawing.FontStyle.Bold)
+                };
+                sortingChart.Legends.Add(legend);
+
+                foreach(Series serie in sortingChart.Series)
+                {
+                    serie.Legend = "Legend";
+                }
+
+
+
+                TabPage page = new TabPage();
+                page.Controls.Add(sortingChart);
+                page.Text = $"Iteración {i+1}"; 
+                resultsTabControl.TabPages.Add(page);
+            }
+        }
+
+        //Add Series to iteration charts
+        private void AddSeries(Chart sortingChart, string name, System.Drawing.Color color)
+        {
+            Series series = new Series(name)
+            {
+                ChartType = SeriesChartType.Column,
+                ChartArea = "MainArea",
+                IsValueShownAsLabel = true,
+                Color = color
+            };
+            sortingChart.Series.Add(series);
+        }
+
+        //Carga los datos en los gráficos por iteraciones
+        private void AddDataToSeries(Chart sortingChart, string seriesName, string[] xValues, List<long> yValues)
+        {
+            Series series = sortingChart.Series[seriesName];
+            for (int i = 0; i < xValues.Length; i++)
+            {
+                series.Points.AddXY(xValues[i], yValues[i]);
+            }
+        }
+
+
         //Crear Charts para los datos aleatorios de cada iteración
         private Chart createDataChart(string xaxis, string yaxis)
         {
@@ -408,6 +521,8 @@ namespace discreet_project
             }
             return new int[] { elements, intervals, iterations };
         }
+
+
     }
 
 }
