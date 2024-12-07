@@ -18,7 +18,7 @@ namespace discreet_project
             stopWatchFirst = new Stopwatch();
         }
 
-        public double roundValue(double number)
+        private double roundValue(double number)
         {
             double rounded = 0;
             number *= 10;
@@ -66,17 +66,23 @@ namespace discreet_project
             {
                 i = i * 2;
             }
+            i = Math.Min(i, n-1);
+            int j = i;
+            while (j > 0 && roundValue(list[j]) >= value)
+            {
+                j = j/2;
+            }
 
-            int left = BinarySearch(list, value, 0, Math.Min(n - 1, i), true);
-            int right = BinarySearch(list, value, 0, Math.Min(n - 1, i), false);
+            int left = BinarySearch(list, value, j, i, true);
+            int right = BinarySearch(list, value, j, i, false);
             if (left == -1) finds = 0;
             else
             {
                 finds = (right+1) - left ;
             }
 
-            stopWatchAll.Stop();
             stopWatchFirst.Stop();
+            stopWatchAll.Stop();
             return finds;
         }
 

@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            this.tabControl = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title13 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title14 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.mainTabControl = new System.Windows.Forms.TabControl();
             this.generationTab = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblElements = new System.Windows.Forms.Label();
@@ -80,7 +84,7 @@
             this.Insr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mrg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchTab = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.searchIterationTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -88,7 +92,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.randomGenerateButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabControl.SuspendLayout();
+            this.generalSearchChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.generalSearchDG = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prgBarGeneration = new System.Windows.Forms.ProgressBar();
+            this.progressPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.mainTabControl.SuspendLayout();
             this.generationTab.SuspendLayout();
             this.panel1.SuspendLayout();
             this.generalTab.SuspendLayout();
@@ -103,23 +116,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.resumeResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allResults)).BeginInit();
             this.searchTab.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.searchIterationTab.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.generalSearchChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalSearchDG)).BeginInit();
+            this.progressPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl
+            // mainTabControl
             // 
-            this.tabControl.CausesValidation = false;
-            this.tabControl.Controls.Add(this.generationTab);
-            this.tabControl.Controls.Add(this.generalTab);
-            this.tabControl.Controls.Add(this.searchTab);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1474, 856);
-            this.tabControl.TabIndex = 0;
+            this.mainTabControl.CausesValidation = false;
+            this.mainTabControl.Controls.Add(this.generationTab);
+            this.mainTabControl.Controls.Add(this.generalTab);
+            this.mainTabControl.Controls.Add(this.searchTab);
+            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainTabControl.Location = new System.Drawing.Point(0, 0);
+            this.mainTabControl.Name = "mainTabControl";
+            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.Size = new System.Drawing.Size(1474, 856);
+            this.mainTabControl.TabIndex = 0;
             // 
             // generationTab
             // 
@@ -136,6 +152,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.progressPanel);
             this.panel1.Controls.Add(this.lblElements);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtelements);
@@ -290,115 +307,115 @@
             // 
             // randomResultChart
             // 
-            chartArea5.AxisX.Title = "Iteración";
-            chartArea5.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.Title = "Tiempo (ticks)";
-            chartArea5.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.Name = "ChartArea1";
-            this.randomResultChart.ChartAreas.Add(chartArea5);
+            chartArea11.AxisX.Title = "Iteración";
+            chartArea11.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea11.AxisY.Title = "Tiempo (ticks)";
+            chartArea11.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea11.Name = "ChartArea1";
+            this.randomResultChart.ChartAreas.Add(chartArea11);
             this.randomResultChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            legend5.Title = "Algoritmos de ordenamiento";
-            legend5.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomResultChart.Legends.Add(legend5);
+            legend11.Name = "Legend1";
+            legend11.Title = "Algoritmos de ordenamiento";
+            legend11.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomResultChart.Legends.Add(legend11);
             this.randomResultChart.Location = new System.Drawing.Point(3, 3);
             this.randomResultChart.Name = "randomResultChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.randomResultChart.Series.Add(series5);
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.randomResultChart.Series.Add(series11);
             this.randomResultChart.Size = new System.Drawing.Size(951, 190);
             this.randomResultChart.TabIndex = 0;
             this.randomResultChart.Text = "Resultados tiempo de ordenamiento de listas con datos aleatorios";
-            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title5.Name = "Title1";
-            title5.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas con datos aleatorios" +
+            title11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title11.Name = "Title1";
+            title11.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas con datos aleatorios" +
     "";
-            this.randomResultChart.Titles.Add(title5);
+            this.randomResultChart.Titles.Add(title11);
             // 
             // inversedResultChart
             // 
-            chartArea6.AxisX.MaximumAutoSize = 80F;
-            chartArea6.AxisX.Title = "Iteración";
-            chartArea6.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea6.AxisY.Title = "Tiempo (ticks)";
-            chartArea6.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea6.Name = "ChartArea1";
-            this.inversedResultChart.ChartAreas.Add(chartArea6);
+            chartArea12.AxisX.MaximumAutoSize = 80F;
+            chartArea12.AxisX.Title = "Iteración";
+            chartArea12.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea12.AxisY.Title = "Tiempo (ticks)";
+            chartArea12.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea12.Name = "ChartArea1";
+            this.inversedResultChart.ChartAreas.Add(chartArea12);
             this.inversedResultChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend6.Name = "Legend1";
-            legend6.Title = "Algoritmos de Ordenamiento";
-            legend6.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inversedResultChart.Legends.Add(legend6);
+            legend12.Name = "Legend1";
+            legend12.Title = "Algoritmos de Ordenamiento";
+            legend12.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inversedResultChart.Legends.Add(legend12);
             this.inversedResultChart.Location = new System.Drawing.Point(3, 199);
             this.inversedResultChart.Name = "inversedResultChart";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.inversedResultChart.Series.Add(series6);
+            series12.ChartArea = "ChartArea1";
+            series12.Legend = "Legend1";
+            series12.Name = "Series1";
+            this.inversedResultChart.Series.Add(series12);
             this.inversedResultChart.Size = new System.Drawing.Size(951, 190);
             this.inversedResultChart.TabIndex = 1;
             this.inversedResultChart.Text = "chart2";
-            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title6.Name = "Title1";
-            title6.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas ordenadas inversamen" +
+            title12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title12.Name = "Title1";
+            title12.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas ordenadas inversamen" +
     "te";
-            this.inversedResultChart.Titles.Add(title6);
+            this.inversedResultChart.Titles.Add(title12);
             // 
             // rangedResultChart
             // 
-            chartArea7.AxisX.Title = "Iteración";
-            chartArea7.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.AxisY.Title = "Tiempo (ticks)";
-            chartArea7.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.Name = "ChartArea1";
-            this.rangedResultChart.ChartAreas.Add(chartArea7);
+            chartArea13.AxisX.Title = "Iteración";
+            chartArea13.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea13.AxisY.Title = "Tiempo (ticks)";
+            chartArea13.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea13.Name = "ChartArea1";
+            this.rangedResultChart.ChartAreas.Add(chartArea13);
             this.rangedResultChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Name = "Legend1";
-            legend7.Title = "Algoritmos de ordenamiento";
-            legend7.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rangedResultChart.Legends.Add(legend7);
+            legend13.Name = "Legend1";
+            legend13.Title = "Algoritmos de ordenamiento";
+            legend13.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rangedResultChart.Legends.Add(legend13);
             this.rangedResultChart.Location = new System.Drawing.Point(3, 395);
             this.rangedResultChart.Name = "rangedResultChart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.rangedResultChart.Series.Add(series7);
+            series13.ChartArea = "ChartArea1";
+            series13.Legend = "Legend1";
+            series13.Name = "Series1";
+            this.rangedResultChart.Series.Add(series13);
             this.rangedResultChart.Size = new System.Drawing.Size(951, 190);
             this.rangedResultChart.TabIndex = 2;
             this.rangedResultChart.Text = "chart3";
-            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.Name = "Title1";
-            title7.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas con datos aleatorios" +
+            title13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title13.Name = "Title1";
+            title13.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas con datos aleatorios" +
     " por rangos";
-            this.rangedResultChart.Titles.Add(title7);
+            this.rangedResultChart.Titles.Add(title13);
             // 
             // repeatedResultChart
             // 
-            chartArea8.AxisX.Title = "Iteración";
-            chartArea8.AxisY.Title = "Tiempo (ticks)";
-            chartArea8.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea8.Name = "ChartArea1";
-            this.repeatedResultChart.ChartAreas.Add(chartArea8);
+            chartArea14.AxisX.Title = "Iteración";
+            chartArea14.AxisY.Title = "Tiempo (ticks)";
+            chartArea14.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea14.Name = "ChartArea1";
+            this.repeatedResultChart.ChartAreas.Add(chartArea14);
             this.repeatedResultChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend8.Name = "Legend1";
-            legend8.Title = "Algoritmos de Ordenamiento";
-            legend8.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repeatedResultChart.Legends.Add(legend8);
+            legend14.Name = "Legend1";
+            legend14.Title = "Algoritmos de Ordenamiento";
+            legend14.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repeatedResultChart.Legends.Add(legend14);
             this.repeatedResultChart.Location = new System.Drawing.Point(3, 591);
             this.repeatedResultChart.Name = "repeatedResultChart";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.repeatedResultChart.Series.Add(series8);
+            series14.ChartArea = "ChartArea1";
+            series14.Legend = "Legend1";
+            series14.Name = "Series1";
+            this.repeatedResultChart.Series.Add(series14);
             this.repeatedResultChart.Size = new System.Drawing.Size(951, 192);
             this.repeatedResultChart.TabIndex = 3;
             this.repeatedResultChart.Text = "chart4";
-            title8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title8.Name = "Title1";
-            title8.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas con datos aleatorios" +
+            title14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title14.Name = "Title1";
+            title14.Text = "Tiempo empleado por los algoritmos de ordenamiento en listas con datos aleatorios" +
     " con repetición";
-            this.repeatedResultChart.Titles.Add(title8);
+            this.repeatedResultChart.Titles.Add(title14);
             // 
             // tablesPanel
             // 
@@ -532,7 +549,7 @@
             // searchTab
             // 
             this.searchTab.BackColor = System.Drawing.Color.White;
-            this.searchTab.Controls.Add(this.tabControl1);
+            this.searchTab.Controls.Add(this.searchIterationTab);
             this.searchTab.Controls.Add(this.panel2);
             this.searchTab.Location = new System.Drawing.Point(4, 25);
             this.searchTab.Name = "searchTab";
@@ -541,16 +558,16 @@
             this.searchTab.TabIndex = 6;
             this.searchTab.Text = "Búsqueda";
             // 
-            // tabControl1
+            // searchIterationTab
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(384, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1079, 821);
-            this.tabControl1.TabIndex = 4;
+            this.searchIterationTab.Controls.Add(this.tabPage1);
+            this.searchIterationTab.Controls.Add(this.tabPage2);
+            this.searchIterationTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchIterationTab.Location = new System.Drawing.Point(384, 3);
+            this.searchIterationTab.Name = "searchIterationTab";
+            this.searchIterationTab.SelectedIndex = 0;
+            this.searchIterationTab.Size = new System.Drawing.Size(1079, 821);
+            this.searchIterationTab.TabIndex = 4;
             // 
             // tabPage1
             // 
@@ -574,6 +591,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.generalSearchDG);
+            this.panel2.Controls.Add(this.generalSearchChart);
             this.panel2.Controls.Add(this.randomNumLabel);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.randomGenerateButton);
@@ -590,7 +609,7 @@
             this.randomNumLabel.BackColor = System.Drawing.Color.Black;
             this.randomNumLabel.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.randomNumLabel.ForeColor = System.Drawing.Color.LawnGreen;
-            this.randomNumLabel.Location = new System.Drawing.Point(119, 320);
+            this.randomNumLabel.Location = new System.Drawing.Point(137, 311);
             this.randomNumLabel.Name = "randomNumLabel";
             this.randomNumLabel.Size = new System.Drawing.Size(102, 56);
             this.randomNumLabel.TabIndex = 3;
@@ -629,16 +648,112 @@
     "ritmos de\r\nbúsqueda.\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // generalSearchChart
+            // 
+            chartArea15.AxisX.Title = "Algoritmos de búsqueda";
+            chartArea15.AxisY.Title = "Tiempo (ms)";
+            chartArea15.Name = "ChartArea1";
+            this.generalSearchChart.ChartAreas.Add(chartArea15);
+            legend15.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend15.Name = "Legend1";
+            this.generalSearchChart.Legends.Add(legend15);
+            this.generalSearchChart.Location = new System.Drawing.Point(5, 411);
+            this.generalSearchChart.Name = "generalSearchChart";
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.generalSearchChart.Series.Add(series15);
+            this.generalSearchChart.Size = new System.Drawing.Size(376, 297);
+            this.generalSearchChart.TabIndex = 4;
+            this.generalSearchChart.Text = "chart1";
+            title15.Name = "Title1";
+            title15.Text = "Promedios de tiempo en encontrar primer y total de cada algoritmo de búsqueda";
+            this.generalSearchChart.Titles.Add(title15);
+            // 
+            // generalSearchDG
+            // 
+            this.generalSearchDG.AllowUserToAddRows = false;
+            this.generalSearchDG.AllowUserToDeleteRows = false;
+            this.generalSearchDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.generalSearchDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col1,
+            this.col2,
+            this.col3});
+            this.generalSearchDG.Location = new System.Drawing.Point(1, 714);
+            this.generalSearchDG.Name = "generalSearchDG";
+            this.generalSearchDG.ReadOnly = true;
+            this.generalSearchDG.Size = new System.Drawing.Size(380, 110);
+            this.generalSearchDG.TabIndex = 5;
+            // 
+            // col1
+            // 
+            this.col1.HeaderText = "Algoritmo";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            this.col1.Width = 80;
+            // 
+            // col2
+            // 
+            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col2.HeaderText = "promedio encontrar primero (ms)";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            // 
+            // col3
+            // 
+            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col3.HeaderText = "Prometio tiempo total (ms)";
+            this.col3.Name = "col3";
+            this.col3.ReadOnly = true;
+            // 
+            // prgBarGeneration
+            // 
+            this.prgBarGeneration.Location = new System.Drawing.Point(18, 56);
+            this.prgBarGeneration.Name = "prgBarGeneration";
+            this.prgBarGeneration.Size = new System.Drawing.Size(482, 23);
+            this.prgBarGeneration.TabIndex = 9;
+            // 
+            // progressPanel
+            // 
+            this.progressPanel.Controls.Add(this.button1);
+            this.progressPanel.Controls.Add(this.label5);
+            this.progressPanel.Controls.Add(this.prgBarGeneration);
+            this.progressPanel.Location = new System.Drawing.Point(856, 170);
+            this.progressPanel.Name = "progressPanel";
+            this.progressPanel.Size = new System.Drawing.Size(604, 95);
+            this.progressPanel.TabIndex = 10;
+            this.progressPanel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Progreso";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(524, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 856);
-            this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.mainTabControl);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Algortimos de Ordenamiento";
-            this.tabControl.ResumeLayout(false);
+            this.mainTabControl.ResumeLayout(false);
             this.generationTab.ResumeLayout(false);
             this.generationTab.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -656,16 +771,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.resumeResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allResults)).EndInit();
             this.searchTab.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.searchIterationTab.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.generalSearchChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generalSearchDG)).EndInit();
+            this.progressPanel.ResumeLayout(false);
+            this.progressPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage generationTab;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblElements;
@@ -704,11 +823,20 @@
         private System.Windows.Forms.Button randomGenerateButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl searchIterationTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label randomNumLabel;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView generalSearchDG;
+        private System.Windows.Forms.DataVisualization.Charting.Chart generalSearchChart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3;
+        private System.Windows.Forms.ProgressBar prgBarGeneration;
+        private System.Windows.Forms.Panel progressPanel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 
