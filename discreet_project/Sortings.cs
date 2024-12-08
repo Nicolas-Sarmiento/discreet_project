@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace discreet_project
 {
+    /// <summary>
+    /// This is a class with sorting algorithms:
+    /// - Bubble Sort
+    /// - Insertion Sort
+    /// -Merge Sort
+    /// </summary>
     public class Sortings
     {
-       
+
+        /// <summary>
+        /// Bubbles the sort. This method performs a bubble sort
+        /// over a list of doubles.
+        /// </summary>
+        /// <param name="arr">The list of doubles.</param>
         public void bubbleSort(List<double> arr)
         {
             double temp = 0;
@@ -27,6 +38,11 @@ namespace discreet_project
             }
         }
 
+        /// <summary>
+        /// Insertions the sort. This method performs a insertion sort
+        /// over a list of doubles.
+        /// </summary>
+        /// <param name="arr">The list of doubles.</param>
         public void insertionSort(List<double> arr)
         {
             double key = 0;
@@ -45,6 +61,15 @@ namespace discreet_project
             }
         }
 
+        /// <summary>
+        /// Merges the arrays. Merge Sort needs to merge 
+        /// two ordered arrays. This metod merges two sorted arrays
+        /// it uses some loops to complete the task.
+        /// </summary>
+        /// <param name="arr">The list of doubles.</param>
+        /// <param name="l">The left pointer.</param>
+        /// <param name="m">The mid pointer.</param>
+        /// <param name="r">The right pointer.</param>
         void mergeArrays(List<double> arr, int l, int m, int r)
         { 
             int lenL = m- l + 1;
@@ -89,8 +114,19 @@ namespace discreet_project
             }
 
         }
-    
-    
+
+
+        /// <summary>
+        /// Merges the sort. Performs a MergeSort over
+        /// a list of doubles. This method uses itself to
+        /// sort the whole main list. To use to sort a 
+        /// whole list. left pointer is zero (0)
+        /// and the right pointer is the size of the list minus one
+        /// (n - 1).
+        /// </summary>
+        /// <param name="arr">The list of doubles.</param>
+        /// <param name="l">The left pointer.</param>
+        /// <param name="r">The right Pointer.</param>
         public void mergeSort( List<double> arr, int l, int r )
         {
             if( l < r)

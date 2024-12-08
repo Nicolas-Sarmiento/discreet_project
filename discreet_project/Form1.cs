@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization.Formatters;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -14,25 +15,71 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace discreet_project
 {
+    /// <summary>
+    /// This is the main Form of the project. It contains a tabControl as a main driver.
+    /// This tabControl have tree tabs: Generate, results and search
+    /// In the generate tab user generate the iterations
+    /// In the results tab user can see results after generate iterations
+    /// In the search tab user can generate and search a random number in the list of each iteration.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// The random Generator
+        /// </summary>
         Random random = new Random();
+        /// <summary>
+        /// The iteration list contains the random list ( random, inverse order, ranged and with repeated values)
+        /// </summary>
         List<List<List<double>>> iterationList;
+        /// <summary>
+        /// This storages the sorting times of each iteration and type list
+        /// </summary>
         List<List<List<Stopwatch>>> times;
+        /// <summary>
+        /// This storages the times of searching a value in all iteration and type lists.
+        /// </summary>
         List<List<List<List<TimeSpan>>>> timesSearch;
+        /// <summary>
+        /// This storages the coincedences found in the searching process across the iteration list
+        /// </summary>
         List<List<List<long>>> searchFounds;
+        /// <summary>
+        /// This is a class to apply sorting algorithms.
+        /// </summary>
         Sortings sortings;
+        /// <summary>
+        /// This is the random generated value to search in the iteration list.
+        /// </summary>
         double randomToSearch;
+        /// <summary>
+        /// The numb of sorting algorithms
+        /// </summary>
         int numbOfSorts = 3;
+        /// <summary>
+        /// The number of searching algorithms
+        /// </summary>
         int numberOfSearchs = 2;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Form1"/> class.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
           
         }
 
-        //Accion del botón generar, luego de eso ordena
+
+        /// <summary>
+        /// This button generates the random list of iterations and sort them and 
+        /// do the sort and time mesuarement. When this action is realese the graphics are
+        /// generated to show each iteration and also trigger the result graphics generation.
+        /// This action uses parallel process to sort and do not lock the user interface
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private async void btnStart_ClickAsync(object sender, EventArgs e)
         {
             int[] inputs = validateInputs();
@@ -52,14 +99,15 @@ namespace discreet_project
             generalSearchDG.Visible = false;
             generalSearchChart.Visible = false;
             searchIterationTab.Visible = false;
-
+            infoSearchLabel.Visible = true;
 
             prgBarGeneration.Value = 0;
             var progress = new Progress<int>(percent =>
             {
-                prgBarGeneration.Value = percent; // Actualiza la barra de progreso
+                prgBarGeneration.Value = percent;
             });
 
+       
             try
             {
                 tabIterations.TabPages.Clear();
@@ -68,7 +116,7 @@ namespace discreet_project
                 {
                     for (int i = 0; i < iterations; i++)
                     {
-                       generateRandomData(elements, intervals);
+                        generateRandomData(elements, intervals);
                     }
                 });
 
@@ -89,6 +137,7 @@ namespace discreet_project
                 {
                     getSortingResults(progress);
                 });
+             
                 generateResultGraphs();
 
                 btnStart.Text = "Generar";
@@ -100,12 +149,21 @@ namespace discreet_project
                 btnStart.Enabled = true;
                 randomGenerateButton.Enabled = true;
                 progressPanel.Visible = false;
+                infoSearchLabel.Visible = false;
             }
         }
 
 
 
-        // Acción del botón de buscar en las listas
+
+        /// <summary>
+        /// Handles the Click event of the randomGenerateButton control. This action generates a random 
+        /// number of 1 decimal position to search. In this the proccess of searching is applied and then 
+        /// the results are loaded in graphics that the user can see in the search tab. As well as the generate
+        /// button this event uses parallel proccesses to avoid UI blocking.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private async void randomGenerateButton_Click(object sender, EventArgs e)
         {
             randomNumLabel.Text = "-.-";
@@ -145,6 +203,11 @@ namespace discreet_project
 
 
         //Genera todos los datos aleatorios (4 listas por iteracion)
+        /// <summary>
+        /// Generates the random data.
+        /// </summary>
+        /// <param name="elements">The elements.</param>
+        /// <param name="intervals">The intervals.</param>
         private void generateRandomData(int elements, int intervals)
         {
             double randItem = 0;
@@ -212,8 +275,14 @@ namespace discreet_project
             iterationList.Add(lists);
         }
 
-        //Ordena todas las listas de todas las iteraciones
-        private void getSortingResults(IProgress<int> progress)
+
+        /// <summary>
+        /// Gets the sorting results by applying the sorting algortihms
+        /// and storing the time results in the times. It also uses a progrees 
+        /// to count the progress and show it in the UI.
+        /// </summary>
+        /// <param name="progress">The progress.</param>
+        private void getSortingResults(IProgress<int> progress) 
         {
             Sortings sortingsTool = new Sortings();
             times = new List<List<List<Stopwatch>>>();
@@ -226,7 +295,8 @@ namespace discreet_project
                 {
                     List<Stopwatch> timesByMethod = new List<Stopwatch>();
                     for( int k = 0; k < numbOfSorts; k++)
-                    { 
+                    {
+                        
                         List<double> auxList = new List<double>(iterationList[i][j]);
                         Stopwatch stopWatch = new Stopwatch();
                         switch (k)
@@ -272,8 +342,13 @@ namespace discreet_project
             }
         }
 
-       
-        // Realizar las búsquedas
+
+
+        /// <summary>
+        /// Gets the searching results by applying the searching algorithms
+        /// and keeping the results in the timeSearching and the number of coincidences 
+        /// in the searcFound structure.
+        /// </summary>
         private void getSearchingResults()
         {
             Search linear = new Search();
@@ -310,10 +385,16 @@ namespace discreet_project
                 searchFounds.Add(auxFounds);
             }
         }
-        
-        
 
-        //Genera los elementos gráficos de los resultados de la búsqueda por cada iteración
+
+
+        
+        /// <summary>
+        /// Generates the search result graphics for each iteration. In this method
+        /// two charts are generates. One of them contains the time of found the first element
+        /// and the total time by each searching algortihm. It also create a datagrid to show the
+        /// same and for each iteration and type of list.
+        /// </summary>
         private void generateSearchResultGraph()
         {
             String[] listTypes = { "Datos Aleatorios", "Datos Ordenados Inversamente", "Datos por Rangos", "Datos con Repetidos" };
@@ -321,6 +402,7 @@ namespace discreet_project
             Font font = new System.Drawing.Font("Microsoft Sans Serif", 9, System.Drawing.FontStyle.Regular);
             for(int i = 0; i < iterationList.Count; i++)
             {
+                /// For each iteration creates a tableLayoutPanel for each type of list results.
                 TableLayoutPanel panel = new TableLayoutPanel();
                 panel.RowCount = 2;
                 panel.ColumnCount = 2;
@@ -330,6 +412,9 @@ namespace discreet_project
                 panel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 panel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
 
+                ///For each list in the iterations creates a chart for time results
+                ///Another one is for the founds by each search algorithm
+                ///And a datagrid that shows the time in TimeSpan format
                 for (int j = 0; j < 4; j++)
                 {
                     TableLayoutPanel container = new TableLayoutPanel() {
@@ -337,7 +422,7 @@ namespace discreet_project
                         ColumnCount = 1,
                         RowCount = 2,
                     };
-                    container.RowStyles.Add(new RowStyle(SizeType.Percent, 80F)); // Gráficos ocupan 80%
+                    container.RowStyles.Add(new RowStyle(SizeType.Percent, 80F)); 
                     container.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
 
                     TableLayoutPanel chartContainer = new TableLayoutPanel()
@@ -452,8 +537,11 @@ namespace discreet_project
             }
         }
 
-
-        //Carga información en el dataGrid y chart de Búsqueda General (Promedios)
+        /// <summary>
+        /// Genertates the general search results. That information are time averages
+        /// of each search algortihm that information is showed as a chart and a 
+        /// datagridview.
+        /// </summary>
         private void genertateGeneralSearchResults()
         {
             double avgFirstLn = 0;
@@ -511,8 +599,12 @@ namespace discreet_project
 
         }
 
-
-        //Genera los elementos gráficos de los resultados de los ordenamientos
+        /// <summary>
+        /// Generates the sorting result  graphs. This method generates
+        /// the general results of each type of list in the iteration lists, it
+        /// also generates one chart by each iteration showing the time of each
+        /// sorting algorithm.
+        /// </summary>
         private void generateResultGraphs()
         {
 
@@ -527,7 +619,14 @@ namespace discreet_project
         }
 
 
-        //Cargar Charts con resultados de los ordenamientos generales por tipo de lista
+        
+        /// <summary>
+        /// Loads the result general chart by type of list. In this case the list is 
+        /// random, reverse ordered, ranged or with repeated values. This present a chart 
+        /// with put the data in a previous created chart.
+        /// </summary>
+        /// <param name="chart">The chart.</param>
+        /// <param name="listTypeIndex">Index of the list type.</param>
         private void loadResultGeneralChart(Chart chart, int listTypeIndex)
         {
             string[] algorithms = { "Burbuja", "Inserción", "Merge" };
@@ -550,7 +649,12 @@ namespace discreet_project
             }
         }
 
-        //Data Grids de los resultados generales de los ordenamientos
+
+        /// <summary>
+        /// Loads the data grids general results with a resume of data from each type of list
+        /// and sorting algorithm. This datagrid contains values as average time, min time and 
+        /// max time for sorting each type of list with a sorting algorithm.
+        /// </summary>
         private void loadDataGridsGeneralResults()
         {
 
@@ -602,8 +706,14 @@ namespace discreet_project
 
 
         }
-        
-        //Graficos en cada iteración de ordenamiento
+
+
+        /// <summary>
+        /// Generates the sorting iteration charts. For each iteration this method
+        /// generates a chart with the times of the each sorting algorithm. Each 
+        /// itearation contains four types of list that would be the series and 
+        /// the xvalues are the sorting algorithms.
+        /// </summary>
         private void generateIterationCharts()
         {
             while (resultsTabControl.TabPages.Count > 1)
@@ -671,7 +781,15 @@ namespace discreet_project
             }
         }
 
-        //Add Series to iteration charts
+
+        /// <summary>
+        /// This method is a tool for create and add a serie in a Chart. It is used
+        /// only in the showing results of sorting proceess. The chart is sortingChart
+        /// and it is a previous created chart.
+        /// </summary>
+        /// <param name="sortingChart">The sorting chart.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="color">The color.</param>
         private void AddSeries(Chart sortingChart, string name, System.Drawing.Color color)
         {
             Series series = new Series(name)
@@ -684,7 +802,16 @@ namespace discreet_project
             sortingChart.Series.Add(series);
         }
 
-        //Carga los datos en los gráficos por iteraciones
+
+        /// <summary>
+        /// This method is a tool for load data in a chart with multiples series.
+        /// The sorting chart is a previous created chart and this method is used
+        /// only in the showing results of sorting proceess.
+        /// </summary>
+        /// <param name="sortingChart">The sorting chart.</param>
+        /// <param name="seriesName">Name of the series.</param>
+        /// <param name="xValues">The x values.</param>
+        /// <param name="yValues">The y values.</param>
         private void AddDataToSeries(Chart sortingChart, string seriesName, string[] xValues, List<long> yValues)
         {
             Series series = sortingChart.Series[seriesName];
@@ -695,7 +822,14 @@ namespace discreet_project
         }
 
 
-        //Crear Charts para los datos aleatorios de cada iteración
+
+        /// <summary>
+        /// Creates a simple chart with an only series. The method requires 
+        /// the title for each axis.
+        /// </summary>
+        /// <param name="xaxis">The xaxis.</param>
+        /// <param name="yaxis">The yaxis.</param>
+        /// <returns></returns>
         private Chart createDataChart(string xaxis, string yaxis)
         {
             Series serie = new Series("Series1") { ChartType = SeriesChartType.Column };
@@ -711,7 +845,14 @@ namespace discreet_project
             return chart;
         }
 
-        //Crea los paneles de cada Tab Para cada iteración de datos aleatorios
+
+        /// <summary>
+        /// Generates a chart panel that contains four charts that represents
+        /// the information of the random numbers in the different type of list of each
+        /// iteration.
+        /// </summary>
+        /// <param name="iteration">The iteration.</param>
+        /// <returns></returns>
         private TableLayoutPanel generateChartPanel(List<List<double>> iteration)
         {
           
@@ -776,7 +917,14 @@ namespace discreet_project
             return panel;
         }
 
-        //Valida los datos de entrada de la generación de los datos aleatorios
+
+        /// <summary>
+        /// Validates the inputs of the generation tab: number of random number in each list, number of intervals
+        /// and number of iterations. This validates that the mentioned fields are valid ( more than zero and it must
+        /// be a number). This method doesn't validate that the number is in a specific range. Then it returns the 
+        /// respective values of that fields.
+        /// </summary>
+        /// <returns></returns>
         private int[] validateInputs()
         {
             int elements = 0;
@@ -810,6 +958,7 @@ namespace discreet_project
             }
             return new int[] { elements, intervals, iterations };
         }
+
     }
 
 }
